@@ -31,6 +31,14 @@ function db_login_get_nama($username) {
     return $query_row['nama'];
 }
 
+function db_login_get_role($role) {
+    $sql = "SELECT admin.role FROM admin WHERE admin.username='$role'";
+    $query = mysql_query($sql);
+    $query_row = mysql_fetch_array($query);
+
+    return $query_row['role'];
+}
+
 function db_admin_get_profil($username) {
     $sql = "SELECT * FROM admin WHERE admin.username = '$username'";
     $query = mysql_query($sql);
@@ -62,6 +70,13 @@ function db_admin_update_profile($username, $password, $nama, $telepon) {
 
 function db_pemegang_get_all() {
     $sql = "SELECT * FROM pemegang";
+    $query = mysql_query($sql);
+
+    return $query;
+}
+
+function db_drivers_get_all() {
+    $sql = "SELECT * FROM drivers";
     $query = mysql_query($sql);
 
     return $query;

@@ -9,6 +9,7 @@ if ($ses_login === TRUE) {
 // code
     $login = $_POST['login'];
     $login_username = $_POST['username'];
+    $role = $_POST['role'];
     $login_password =md5($_POST['password']);
     $login_check = db_login_check($login_username, $login_password);
     $login_error = '';
@@ -18,6 +19,7 @@ if ($ses_login === TRUE) {
             // login sukses
             $_SESSION['login'] = TRUE;
             $_SESSION['username'] = $login_username;
+            $_SESSION['role'] = db_login_get_role($login_username);
             $_SESSION['nama'] = db_login_get_nama($login_username);
 
             redirect($site_url, 'home.php');

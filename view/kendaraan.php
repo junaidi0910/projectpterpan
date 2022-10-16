@@ -4,7 +4,7 @@
             <tr>
                 <td class="active">
                     <img src="image/LOGO UKDW PNG.png" width="64" height="64"/>
-                    <strong class="text-title">SISTEM INFORMASI PENJADWALAN KENDARAAN DINAS</strong>
+                    <strong class="text-title">SISTEM INFORMASI PENJADWALAN KENDARAAN DINAS - Kamu Login Sebagai <?php echo $_SESSION['role'] ?></strong>
                 </td>
             </tr>
             <tr>
