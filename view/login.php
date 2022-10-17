@@ -6,8 +6,8 @@
                 <tbody>
                     <tr>
                         <td class="active">
-                            <img src="image/bps-logo.svg" width="64" height="64"/>
-                            <strong>SISTEM INFORMASI BPS TASIKMALAYA</strong>
+                            <img src="image/LOGO UKDW PNG.png" width="64" height="64"/>
+                            <strong>SISTEM INFORMASI PENJADWALAN KENDARAAN DINAS</strong>
                         </td>
                     </tr>
                     <tr>
@@ -36,7 +36,7 @@
                     <tr>
                         <td class="active">
                             <small class="bold pull-left"><span id="footer-time"></span></small>
-                            <small class="bold pull-right"><span id="footer-date"></span> | Repost by <a href='https://stokcoding.com/' title='StokCoding.com' target='_blank'>StokCoding.com</a>
+                            <small class="bold pull-right"><span id="footer-date"></span> | Dibuat Oleh <strong>Yudi & Junaidi</strong>
                             </small>
                         </td>
                     </tr>

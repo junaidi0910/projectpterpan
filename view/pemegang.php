@@ -3,8 +3,8 @@
         <tbody>
             <tr>
                 <td class="active">
-                    <img src="image/LOGO UKDW PNG.png" width="64" height="64"/>
-                    <strong class="text-title">SISTEM INFORMASI PENJADWALAN KENDARAAN DINAS</strong>
+                <img src="image/LOGO UKDW PNG.png" width="64" height="64"/>
+                    <strong class="text-title">SISTEM INFORMASI PENJADWALAN KENDARAAN DINAS (Login Sebagai <?php echo $_SESSION['role'] ?>)</strong>
                 </td>
             </tr>
             <tr>
@@ -19,7 +19,7 @@
                             <li><?php echo $site_title; ?></li>                            
                         </ol>
 
-                        <div class="panel panel-primary">
+                        <div class="panel panel-info">
                             <div class="panel-heading">
                                 <button class="btn btn-default btn-sm space-5" data-toggle="collapse" data-target="#create" id="btn-create"><i class="glyphicon glyphicon-minus" id="lbl-create"></i></button>
                                 <b>TAMBAH DATA</b>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-primary">
+                        <div class="panel panel-info">
                             <div class="panel-heading">
                                 <b>LIST DATA KARYAWAN</b>
                             </div>

@@ -3,8 +3,8 @@
         <tbody>
             <tr>
                 <td class="active">
-                    <img src="image/LOGO UKDW PNG.png" width="64" height="64"/>
-                    <strong class="text-title">SISTEM INFORMASI PENJADWALAN KENDARAAN DINAS</strong>
+                <img src="image/LOGO UKDW PNG.png" width="64" height="64"/>
+                <strong class="text-title">SISTEM INFORMASI PENJADWALAN KENDARAAN DINAS (Login Sebagai <?php echo $_SESSION['role'] ?>)</strong>
                 </td>
             </tr>
             <tr>
@@ -22,7 +22,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <label>Ketik nama pengguna kendaraan / NIP untuk merekap struk transaksi perawatan kendaraan!</label>
+                                        <label>Kelola Data Pengajuan : </label>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
             <tr>
                 <td class="active">
                     <small class="bold pull-left"><span id="footer-time"></span></small>
-                    <small class="bold pull-right"><span id="footer-date"></span> | Repost by <a href='https://stokcoding.com/' title='StokCoding.com' target='_blank'>StokCoding.com</a>
+                    <small class="bold pull-right"><span id="footer-date"></span> | Dibuat Oleh <strong>Yudi & Junaidi</strong>
                     </small>
                 </td>
             </tr>
