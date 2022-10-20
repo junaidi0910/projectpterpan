@@ -4,10 +4,10 @@
 include './config/config.php';
 
 if ($ses_login === TRUE) {
-    $id = $_GET['id'];
+    $username = $_GET['username'];
 
-    if (isset($id)) {
-        $db_delete = db_pemegang_delete($id);
+    if (isset($username)) {
+        $db_delete = db_pemegang_delete($username);
         redirect($site_url, 'pemegang.php');
     } else {
         redirect($site_url, 'pemegang.php');

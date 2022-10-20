@@ -29,7 +29,7 @@
                                     <table class="table table-bordered table-responsive table-hover small">
                                         <tr>
                                             <td>
-                                                <input id="cnip" type="text" name="nip" placeholder="Masukan ID Karyawan" class="form-control" maxlength="18"/>
+                                                <input id="cusername" type="text" name="username" placeholder="Masukan Username" class="form-control" maxlength="18"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -45,6 +45,16 @@
                                         <tr>
                                             <td>
                                                 <input id="ctelepon" type="tel" name="telepon" placeholder="Masukan No. Telepon" class="form-control" maxlength="12" required/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cdivisi" type="text" name="divisi" placeholder="Masukan Divisi" class="form-control" maxlength="12" required/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cpassword" type="password" name="password" placeholder="Masukan Password" class="form-control" maxlength="12" required/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -71,10 +81,11 @@
                                     <thead>
                                         <tr class="active">
                                             <th>#</th>
-                                            <th>ID Karyawan</th>
+                                            <th>Username</th>
                                             <th>Nama</th>
+                                            <th>Telepon</th>
+                                            <th>Divisi</th>
                                             <th>Alamat</th>
-                                            <th>No. HP</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -86,14 +97,15 @@
                                             ?>
                                             <tr>
                                                 <td><?php echo $no; ?></td>
-                                                <td><?php echo $data['nip']; ?></td>
+                                                <td><?php echo $data['username']; ?></td>
                                                 <td><?php echo $data['nama']; ?></td>
-                                                <td><?php echo $data['alamat']; ?></td>
                                                 <td><?php echo $data['telepon']; ?></td>
+                                                <td><?php echo $data['divisi']; ?></td>
+                                                <td><?php echo $data['alamat']; ?></td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a href="pemegang_edit.php?id=<?php echo $data['id']; ?>" class="btn btn-primary btn-xs" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                                                        <a href="pemegang_delete.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-xs" title="Hapus" onclick="return confirm('Hapus data ?')"><i class="glyphicon glyphicon-trash"></i></a>
+                                                        <a href="pemegang_edit.php?username=<?php echo $data['username']; ?>" class="btn btn-primary btn-xs" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                                                        <a href="pemegang_delete.php?username=<?php echo $data['username']; ?>" class="btn btn-danger btn-xs" title="Hapus" onclick="return confirm('Hapus data ?')"><i class="glyphicon glyphicon-trash"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -122,30 +134,30 @@
     $().ready(function () {
         $('#formPemegang').validate();
 
-        $('#cnip').rules("add", {
-            required: true,
-            minlength: 18,
-            maxlength: 18,
-            digits: true
-        }
-        );
-        $('#cnama').rules("add", {
-            required: true,
-            minlength: 3,
-            maxlength: 50
-        }
-        );
-        $('#calamat').rules("add", {
-            required: true,
-            minlength: 5,
-            maxlength: 100
-        }
-        );
-        $('#ctelepon').rules("add", {
-            required: true,
-            minlength: 9,
-            maxlength: 12,
-            digits: true
-        });
+        // $('#cnip').rules("add", {
+        //     required: true,
+        //     minlength: 18,
+        //     maxlength: 18,
+        //     digits: true
+        // }
+        // );
+        // $('#cnama').rules("add", {
+        //     required: true,
+        //     minlength: 3,
+        //     maxlength: 50
+        // }
+        // );
+        // $('#calamat').rules("add", {
+        //     required: true,
+        //     minlength: 5,
+        //     maxlength: 100
+        // }
+        // );
+        // $('#ctelepon').rules("add", {
+        //     required: true,
+        //     minlength: 9,
+        //     maxlength: 12,
+        //     digits: true
+        // });
     });
 </script>

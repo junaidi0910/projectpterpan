@@ -69,7 +69,7 @@ function db_admin_update_profile($username, $password, $nama, $telepon) {
 }
 
 function db_pemegang_get_all() {
-    $sql = "SELECT * FROM pemegang";
+    $sql = "SELECT * FROM admin where role='karyawan'";
     $query = mysql_query($sql);
 
     return $query;
@@ -83,32 +83,32 @@ function db_drivers_get_all() {
 }
 
 function db_pemegang_check_nip($data) {
-    $sql = "SELECT * FROM pemegang WHERE nip = '$data'";
+    $sql = "SELECT * FROM admin WHERE username = '$data'";
     $query = mysql_query($sql) or die('Database error : ' . mysql_error());
     $query_num = mysql_num_rows($query);
 
     return $query_num;
 }
 
-function db_pemegang_insert_new($nip, $nama, $alamat, $telepon) {
-    $sql = "INSERT INTO pemegang(nip, nama, alamat, telepon) VALUES ('$nip','$nama','$alamat','$telepon')";
+function db_pemegang_insert_new($username, $nama, $password, $telepon, $alamat, $divisi) {
+    $sql = "INSERT INTO admin(username, password, nama, telepon, role, divisi, alamat) VALUES ('$username','$password','$nama','$telepon', 'karyawan', '$divisi', '$alamat')";
     $query = mysql_query($sql);
 
     return $query;
 }
 
-function db_pemegang_delete($id) {
-    $sql = "DELETE FROM pemegang WHERE id='$id'";
-    $sql2 = "UPDATE kendaraan SET pemegang_id = NULL WHERE pemegang_id = '$id'";
+function db_pemegang_delete($username) {
+    $sql = "DELETE FROM admin WHERE username='$username'";
+    // $sql2 = "UPDATE kendaraan SET pemegang_id = NULL WHERE pemegang_id = '$id'";
 
     $query = mysql_query($sql);
-    $query2 = mysql_query($sql2);
+    // $query2 = mysql_query($sql2);
 
     return $query;
 }
 
-function db_pemegang_get_row_by_id($id) {
-    $sql = "SELECT * FROM pemegang WHERE id='$id'";
+function db_pemegang_get_row_by_id($username) {
+    $sql = "SELECT * FROM admin WHERE username='$username'";
     $query = mysql_query($sql);
     $query_row = mysql_fetch_array($query);
 
@@ -131,13 +131,14 @@ function db_kendaraan_get_row_by_pemegang_id($id) {
     return $query_row;
 }
 
-function db_pemegang_update_by_id($id, $nip, $nama, $alamat, $telepon) {
-    $sql = "UPDATE pemegang SET "
-            . "nip = '$nip', "
+function db_pemegang_update_by_id($username, $nama, $telepon, $alamat, $divisi) {
+    $sql = "UPDATE admin SET "
+            // . "username = '$username', "
             . "nama = '$nama', "
             . "alamat = '$alamat', "
-            . "telepon = '$telepon' "
-            . "WHERE id = '$id'";
+            . "telepon = '$telepon', "
+            . "divisi = '$divisi'"
+            . "WHERE username = '$username'";
     $query = mysql_query($sql);
 
     return $query;

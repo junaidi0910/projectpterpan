@@ -24,33 +24,38 @@
                                 <b>EDIT DATA</b>
                             </div>
                             <div class="panel-body" id="edit">
-                                <form action="./pemegang_edit.php?id=<?php echo $site_id;?>" method="POST" id="formPemegang">
+                                <form action="./pemegang_edit.php?username=<?php echo $site_id;?>" method="POST" id="formPemegang">
                                     <table class="table table-bordered table-responsive table-hover small">
                                         <tr>
                                             <td>
-                                                <input id="cnip" type="text" name="nip" placeholder="Masukan NIP" class="form-control" value="<?php echo $data['nip'];?>" maxlength="18"/>
+                                                <input id="cusername" type="text" name="username" placeholder="Masukan Username" class="form-control" value="<?= $data['username'] ?>" maxlength="18"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="cnama" type="text" name="nama" placeholder="Masukan Nama Pemegang" class="form-control" value="<?php echo $data['nama'];?>" maxlength="50"/>
+                                                <input id="cnama" type="text" name="nama" placeholder="Masukan Nama Karyawan" class="form-control" value="<?= $data['nama'] ?>" maxlength="50"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <textarea id="calamat" name="alamat" class="form-control" placeholder="Alamat Lengkap" maxlength="100" required><?php echo $data['alamat'];?></textarea>
+                                                <textarea id="calamat" name="alamat" class="form-control" placeholder="Alamat Lengkap" maxlength="100" required><?= $data['alamat'] ?></textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="ctelepon" type="tel" name="telepon" placeholder="Masukan No. Telepon" class="form-control" value="<?php echo $data['telepon'];?>" maxlength="12" required/>
+                                                <input id="ctelepon" type="tel" name="telepon" placeholder="Masukan No. Telepon" class="form-control" value="<?= $data['telepon'] ?>" maxlength="12" required/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cdivisi" type="text" name="divisi" placeholder="Masukan Divisi" class="form-control" value="<?= $data['divisi'] ?>" maxlength="12" required/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="active">
                                                 <div class="btn-group-sm">
-                                                    <button class="btn btn-success" type="submit" name="update"><i class="glyphicon glyphicon-pencil space-5"></i><b>UPDATE</b></button>
-                                                    <a href="./pemegang.php" class="btn btn-danger"><i class="glyphicon glyphicon-arrow-left space-5"></i><b>BATALKAN</b></a>
+                                                    <button class="btn btn-success" type="submit" name="update"><i class="glyphicon glyphicon-pencil space-5"></i><b>Update</b></button>
+                                                    <button class="btn btn-danger"><i class="glyphicon glyphicon-circle-arrow-right space-5"></i><b>Kembali</b></button>
                                                 </div>
                                             </td>
                                         </tr>

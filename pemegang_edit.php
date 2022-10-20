@@ -4,23 +4,24 @@
 include './config/config.php';
 
 if ($ses_login === TRUE) {
-    $id = $_GET['id'];
+    $username = $_GET['username'];
 
-    if (isset($id)) {
+    if (isset($username)) {
         $site_title = 'EDIT DATA';
-        $site_id = $id;
+        $site_id = $username;
         $site_error = '';
-        $data = db_pemegang_get_row_by_id($id);
+        $data = db_pemegang_get_row_by_id($username);
 
         $update = $_POST['update'];
 
         if (isset($update)) {
-            $nip = $_POST['nip'];
+            $username = $_POST['username'];
             $nama = $_POST['nama'];
             $alamat = $_POST['alamat'];
             $telepon = $_POST['telepon'];
+            $divisi = $_POST['divisi'];
 
-            $db_update = db_pemegang_update_by_id($id, $nip, $nama, $alamat, $telepon);
+            $db_update = db_pemegang_update_by_id($username, $nama, $telepon, $alamat, $divisi);
 
             if ($db_update === TRUE) {
                 redirect($site_url, 'pemegang.php');

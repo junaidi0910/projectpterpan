@@ -13,19 +13,23 @@ if ($ses_login === TRUE) {
 
     if (isset($create)) {
 
-        $nip = $_POST['nip'];
+        $username = $_POST['username'];
         $nama = $_POST['nama'];
         $alamat = $_POST['alamat'];
         $telepon = $_POST['telepon'];
-        $db_insert = db_pemegang_insert_new($nip, $nama, $alamat, $telepon);
+        $divisi = $_POST['divisi'];
+        $password = md5($_POST['password']);
+        $db_insert = db_pemegang_insert_new($username, $nama, $password, $telepon, $alamat, $divisi);
 
         if ($db_insert === TRUE) {
             $site_error = '<div class="alert alert-success">Data berhasil ditambahkan !</div>';            
             // refresh query
             $data_pemegang = db_pemegang_get_all();
         } else {
-            $site_error = '<div class="alert alert-danger">NIP sudah di gunakan !</div>';
+            $site_error = '<div class="alert alert-danger">'+mysql_error()+'</div>';
+            mysql_error();
         }
+        // echo $username;
     }
 
     include './view/header.php';
