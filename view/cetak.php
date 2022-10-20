@@ -3,8 +3,8 @@
         <tbody>
             <tr>
                 <td class="active">
-                    <img src="image/bps-logo.svg" width="64" height="64"/>
-                    <strong class="text-title">SISTEM INFORMASI BPS TASIKMALAYA</strong>
+                <img src="image/LOGO UKDW PNG.png" width="64" height="64"/>
+                    <strong class="text-title">SISTEM INFORMASI PENJADWALAN KENDARAAN DINAS (Login Sebagai <?php echo $_SESSION['role'] ?>)</strong>
                 </td>
             </tr>
             <tr>
@@ -19,7 +19,7 @@
                             <li><?php echo $site_title; ?></li>                            
                         </ol>
 
-                        <div class="panel panel-primary">
+                        <div class="panel panel-info">
                             <div class="panel-heading">
                                 <b>CETAK DATA <?php echo $_SESSION['sasih'] . $_SESSION['tahun'];?></b>
                             </div>

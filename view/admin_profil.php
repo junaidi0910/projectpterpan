@@ -4,8 +4,8 @@
         <tbody>
             <tr>
                 <td class="active">
-                    <img src="image/bps-logo.svg" width="64" height="64"/>
-                    <strong class="text-title">SISTEM INFORMASI BPS TASIKMALAYA</strong>
+                <img src="image/LOGO UKDW PNG.png" width="64" height="64"/>
+                <strong class="text-title">SISTEM INFORMASI PENJADWALAN KENDARAAN DINAS (Login Sebagai <?php echo $_SESSION['role'] ?>)</strong>
                 </td>
             </tr>
             <tr>
