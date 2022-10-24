@@ -76,7 +76,7 @@ function db_pemegang_get_all() {
 }
 
 function db_drivers_get_all() {
-    $sql = "SELECT * FROM drivers";
+    $sql = "SELECT * FROM admin where role='driver'";
     $query = mysql_query($sql);
 
     return $query;
@@ -97,6 +97,13 @@ function db_pemegang_insert_new($username, $nama, $password, $telepon, $alamat, 
     return $query;
 }
 
+function db_drivers_insert_new($username, $nama, $password, $telepon, $alamat) {
+    $sql = "INSERT INTO admin(username, password, nama, telepon, role, alamat) VALUES ('$username','$password','$nama','$telepon', 'driver', '$alamat')";
+    $query = mysql_query($sql);
+
+    return $query;
+}
+
 function db_pemegang_delete($username) {
     $sql = "DELETE FROM admin WHERE username='$username'";
     // $sql2 = "UPDATE kendaraan SET pemegang_id = NULL WHERE pemegang_id = '$id'";
@@ -107,7 +114,25 @@ function db_pemegang_delete($username) {
     return $query;
 }
 
+function db_drivers_delete($username) {
+    $sql = "DELETE FROM admin WHERE username='$username'";
+    // $sql2 = "UPDATE kendaraan SET pemegang_id = NULL WHERE pemegang_id = '$id'";
+
+    $query = mysql_query($sql);
+    // $query2 = mysql_query($sql2);
+
+    return $query;
+}
+
 function db_pemegang_get_row_by_id($username) {
+    $sql = "SELECT * FROM admin WHERE username='$username'";
+    $query = mysql_query($sql);
+    $query_row = mysql_fetch_array($query);
+
+    return $query_row;
+}
+
+function db_drivers_get_row_by_id($username) {
     $sql = "SELECT * FROM admin WHERE username='$username'";
     $query = mysql_query($sql);
     $query_row = mysql_fetch_array($query);
@@ -138,6 +163,18 @@ function db_pemegang_update_by_id($username, $nama, $telepon, $alamat, $divisi) 
             . "alamat = '$alamat', "
             . "telepon = '$telepon', "
             . "divisi = '$divisi'"
+            . "WHERE username = '$username'";
+    $query = mysql_query($sql);
+
+    return $query;
+}
+
+function db_drivers_update_by_id($username, $nama, $telepon, $alamat) {
+    $sql = "UPDATE admin SET "
+            // . "username = '$username', "
+            . "nama = '$nama', "
+            . "alamat = '$alamat', "
+            . "telepon = '$telepon'"
             . "WHERE username = '$username'";
     $query = mysql_query($sql);
 

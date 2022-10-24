@@ -16,12 +16,16 @@
     </div>
 </div>
 
+<?php 
+    if($_SESSION['role'] == 'admin'):
+?>
 <div class="list-group small bold">
     <a class="list-group-item list-group-item-action px-3 border-0 rounded-3 mb-2 list-group-item-info"><i class="glyphicon glyphicon-book space-5"></i>  ALL DATA</a>
     <a href="./pemegang.php" class="list-group-item"><i class="glyphicon glyphicon-user space-5"></i> DATA KARYAWAN</a>
     <a href="./kendaraan.php" class="list-group-item"><i class="glyphicon glyphicon-road space-5"></i> DATA KENDARAAN</a>
-    <a href="./biaya.php" class="list-group-item"><i class="glyphicon glyphicon-list-alt space-5"></i> DATA PENGAJUAN</a>
+    <a href="./drivers.php" class="list-group-item"><i class="glyphicon glyphicon-list-alt space-5"></i> DATA DRIVERS</a>
 </div>
+<?php endif; ?>
 
 <div class="list-group small bold">
     <a class="list-group-item list-group-item-action px-3 border-0 rounded-3 mb-2 list-group-item-info"><i class="glyphicon glyphicon-shopping-cart space-5"></i>  DATA PENGAJUAN</a>
