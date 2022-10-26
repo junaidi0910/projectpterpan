@@ -30,22 +30,37 @@
                                         
                                         <tr>
                                             <td>
-                                                <input id="cnama" type="text" name="nama" placeholder="Masukan Nama Kendaraan" class="form-control" maxlength="50"/>
+                                                <input id="cid" type="text" name="id_kendaraan" placeholder="Masukan ID Kendaraan" class="form-control" maxlength="50"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="cnopol" type="text" name="nopol" placeholder="Masukan No. Polisi Kendaraan" class="form-control" maxlength="10"/>
+                                                <input id="cnama" type="text" name="nama_kendaraan" placeholder="Masukan Nama Kendaraan" class="form-control" maxlength="50"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="ckotu" type="text" name="kotu" placeholder="Kota Tujuan" class="form-control" maxlength="20"/>
+                                                <input id="cnopol" type="text" name="no_pol" placeholder="No. Polisi" class="form-control" maxlength="50"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="clamape" type="time" name="lamape" placeholder="Lama Pemakaian" class="form-control" />
+                                                <input id="cmesin" type="text" name="no_mesin" placeholder="No. Mesin" class="form-control" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="crangka" type="text" name="no_rangka" placeholder="No. Rangka" class="form-control" maxlength="50"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cmerk" type="text" name="merk" placeholder="Masukan Merk" class="form-control" maxlength="50"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cwarna" type="text" name="warna" placeholder="Masukan Warna" class="form-control" maxlength="50"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -70,35 +85,33 @@
                                 <table id="tbl-data2" class="table table-responsive table-bordered table-hover">
                                     <thead>
                                         <tr class="active">
-                                            <th>#</th>
-                                            <th>NIK</th>
+                                            <th>ID Kendaraan</th>
                                             <th>Nama Kendaraan</th>
-                                            <th>No. Polisi</th>
-                                            <th>Anggaran</th>
-                                            <th>Pemilik</th>
+                                            <th>No Polisi</th>
+                                            <th>No Mesin</th>
+                                            <th>No Rangka</th>
+                                            <th>Merk</th>
+                                            <th>Warna</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $no = 0;
-                                        while ($data = mysql_fetch_array($data_kendaraan_kosong)) {
+                                        while ($data = mysql_fetch_array($data_kendaraan)) {
                                             ++$no;
                                             ?>
                                             <tr>
-                                                <td><?php echo $no; ?></td>
-                                                <td><?php echo $data['nik']; ?></td>
-                                                <td><?php echo $data['nama']; ?></td>
-                                                <td><?php echo $data['nopol']; ?></td>
-                                                <td>Rp. <?php echo number_format($data['anggaran']); ?></td>
-                                                <td><?php
-                                                    if ($data['pemegang_id'] === NULL) {
-                                                        echo 'Belum Ada';
-                                                    } else {
-                                                        $pemegang = db_kendaraan_get_nama_pemegang($data['pemegang_id']);
-                                                        echo $pemegang['nama'].' ('.$pemegang['nip'].')';
-                                                    }
-                                                    ?>
+                                                <td><?php echo $data['id_kendaraan']; ?></td>
+                                                <td><?php echo $data['nama_kendaraan']; ?></td>
+                                                <td><?php echo $data['no_pol']; ?></td>
+                                                <td><?php echo $data['no_mesin']; ?></td>
+                                                <td><?php echo $data['no_rangka']; ?></td>
+                                                <td>
+                                                <?php echo $data['merk']; ?>
+                                                </td>
+                                                <td>
+                                                    <?= $data['warna'] ?>
                                                 </td>
                                                 <td>
                                                     <div class="btn-group">
@@ -114,7 +127,7 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-info">
+                        <!-- <div class="panel panel-info">
                             <div class="panel-heading">
                                 <b>LIST PEMEGANG KENDARAAN</b>
                             </div>
@@ -165,7 +178,7 @@
 
                                 </table>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </td>
@@ -185,52 +198,52 @@
     $().ready(function () {
         $('#formKendaraan').validate();
 
-        $('#cnama').rules("add", {
-            required: true,
-            minlength: 3,
-            maxlength: 50
-        }
-        );
-        $('#cnopol').rules("add", {
-            required: true,
-            minlength: 5,
-            maxlength: 10
-        }
-        );
-        $('#canggaran').rules("add", {
-            required: true,
-            minlength: 3,
-            maxlength: 11,
-            digits: true
-        });
+        // $('#cnama').rules("add", {
+        //     required: true,
+        //     minlength: 3,
+        //     maxlength: 50
+        // }
+        // );
+        // $('#cnopol').rules("add", {
+        //     required: true,
+        //     minlength: 5,
+        //     maxlength: 10
+        // }
+        // );
+        // $('#canggaran').rules("add", {
+        //     required: true,
+        //     minlength: 3,
+        //     maxlength: 11,
+        //     digits: true
+        // });
 
     });
 
-    function autoNama() {
-        $('#cpemegang_id').val('');
-        var min_length = 0;
-        var keyword = $('#cpemegang_nama').val();
-        if (keyword.length >= min_length) {
-            $.ajax({
-                url: 'check_pemegang_nama.php',
-                type: 'POST',
-                data: {nama: keyword},
-                success: function (data) {
-                    $('#pemegang_nama_list').show();
-                    $('#pemegang_nama_list').html(data);
-                }
-            });
-        } else {
-            $('#pemegang_nama_list').hide();
-        }
+    // function autoNama() {
+    //     $('#cpemegang_id').val('');
+    //     var min_length = 0;
+    //     var keyword = $('#cpemegang_nama').val();
+    //     if (keyword.length >= min_length) {
+    //         $.ajax({
+    //             url: 'check_pemegang_nama.php',
+    //             type: 'POST',
+    //             data: {nama: keyword},
+    //             success: function (data) {
+    //                 $('#pemegang_nama_list').show();
+    //                 $('#pemegang_nama_list').html(data);
+    //             }
+    //         });
+    //     } else {
+    //         $('#pemegang_nama_list').hide();
+    //     }
 
-    }
+    // }
 
-    function set_id(id, nama) {
-        // change input value
-        $('#cpemegang_nama').val(nama);
-        $('#cpemegang_id').val(id);
-        // hide proposition list
-        $('#pemegang_nama_list').hide();
-    }
+    // function set_id(id, nama) {
+    //     // change input value
+    //     $('#cpemegang_nama').val(nama);
+    //     $('#cpemegang_id').val(id);
+    //     // hide proposition list
+    //     $('#pemegang_nama_list').hide();
+    // }
 </script>

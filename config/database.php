@@ -301,22 +301,22 @@ function db_cek_kendaraan($nip) {
     $query = mysql_query($sql);
     return $query;
 }
-function db_kendaraan_get_kosong(){
-    $sql="SELECT * FROM kendaraan WHERE kendaraan.pemegang_id is null";
-    $query=mysql_query($sql);
+// function db_kendaraan_get_kosong(){
+//     $sql="SELECT * FROM kendaraan WHERE kendaraan.pemegang_id is null";
+//     $query=mysql_query($sql);
     
-    return $query;
-}
+//     return $query;
+// }
 
 function db_kendaraan_get_all() {
-          $sql = "SELECT * FROM kendaraan WHERE kendaraan.pemegang_id is not null";
+          $sql = "SELECT * FROM kendaraan";
     $query = mysql_query($sql);
     return $query;  
 }
 
 
-function db_kendaraan_insert_new($nik, $nama, $nopol, $anggaran, $pemegang_id) {
-    $sql = "INSERT INTO kendaraan(nik, nama, nopol, anggaran, pemegang_id) VALUES ('$nik','$nama','$nopol','$anggaran',$pemegang_id)";
+function db_kendaraan_insert_new($id_kendaraan, $nama_kendaraan, $no_pol, $no_mesin,$no_rangka, $merk, $warna) {
+    $sql = "INSERT INTO kendaraan VALUES ('$id_kendaraan', '$nama_kendaraan', '$no_pol', '$no_mesin','$no_rangka', '$merk', '$warna')";
     $query = mysql_query($sql);
 
     return $query;
