@@ -4,7 +4,7 @@
 include './config/config.php';
 
 if ($ses_login === TRUE) {
-    $id = $_GET['id'];
+    $id = $_GET['id_kendaraan'];
 
     if (isset($id)) {
         $site_title = 'EDIT DATA';
@@ -15,19 +15,21 @@ if ($ses_login === TRUE) {
         $update = $_POST['update'];
 
         if (isset($update)) {
-            $nik = $_POST['nik'];
-            $nama = $_POST['nama'];
-            $nopol = $_POST['nopol'];
-            $anggaran = $_POST['anggaran'];
-            $pemegang_id = $_POST['pemegang_id'];
+            $id_kendaraan = $_POST['id_kendaraan'];
+        $nama_kendaraan = $_POST['nama_kendaraan'];
+        $no_pol = $_POST['no_pol'];
+        $no_mesin = $_POST['no_mesin'];
+        $no_rangka = $_POST['no_rangka'];
+        $merk = $_POST['merk'];
+        $warna = $_POST['warna'];
 
-            if ($pemegang_id == '') {
-                $pemegang_id = 'NULL';
-            } else {
-                $pemegang_id = "'" . $pemegang_id . "'";
-            }
+            // if ($pemegang_id == '') {
+            //     $pemegang_id = 'NULL';
+            // } else {
+            //     $pemegang_id = "'" . $pemegang_id . "'";
+            // }
 
-            $db_update = db_kendaraan_update_by_id($id, $nik, $nama, $nopol, $anggaran,$pemegang_id);
+            $db_update = db_kendaraan_update_by_id($id_kendaraan, $nama_kendaraan, $no_pol, $no_mesin,$no_rangka, $merk, $warna);
 
             if ($db_update === TRUE) {
                 redirect($site_url, 'kendaraan.php');

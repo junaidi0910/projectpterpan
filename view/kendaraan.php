@@ -115,8 +115,8 @@
                                                 </td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a href="kendaraan_edit.php?id=<?php echo $data['id']; ?>" class="btn btn-primary btn-xs" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                                                        <a href="kendaraan_delete.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-xs" title="Hapus" onclick="return confirm('Hapus data ?')"><i class="glyphicon glyphicon-trash"></i></a>
+                                                        <a href="kendaraan_edit.php?id_kendaraan=<?php echo $data['id_kendaraan']; ?>" class="btn btn-primary btn-xs" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                                                        <a href="kendaraan_delete.php?id_kendaraan=<?php echo $data['id_kendaraan']; ?>" class="btn btn-danger btn-xs" title="Hapus" onclick="return confirm('Hapus data ?')"><i class="glyphicon glyphicon-trash"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>

@@ -141,7 +141,7 @@ function db_drivers_get_row_by_id($username) {
 }
 
 function db_kendaraan_get_row_by_id($id) {
-    $sql = "SELECT * FROM kendaraan WHERE id='$id'";
+    $sql = "SELECT * FROM kendaraan WHERE id_kendaraan='$id'";
     $query = mysql_query($sql);
     $query_row = mysql_fetch_array($query);
 
@@ -181,14 +181,16 @@ function db_drivers_update_by_id($username, $nama, $telepon, $alamat) {
     return $query;
 }
 
-function db_kendaraan_update_by_id($id, $nik, $nama, $nopol, $anggaran, $pemegang_id) {
+function db_kendaraan_update_by_id($id_kendaraan, $nama_kendaraan, $no_pol, $no_mesin,$no_rangka, $merk, $warna) {
     $sql = "UPDATE kendaraan SET "
-            . "nik = '$nik', "
-            . "nama = '$nama', "
-            . "nopol = '$nopol', "
-            . "anggaran = '$anggaran', "
-            . "pemegang_id = $pemegang_id "
-            . "WHERE id = '$id'";
+            // . "id_kendaraan = '$id_kendaraan', "
+            . "nama_kendaraan = '$nama_kendaraan', "
+            . "no_pol = '$no_pol', "
+            . "no_mesin = '$no_mesin', "
+            . "no_rangka = '$no_rangka', "
+            . "merk = '$merk', "
+            . "warna = '$warna' "
+            . "WHERE id_kendaraan = '$id_kendaraan'";
     $query = mysql_query($sql);
 
     return $query;
@@ -329,8 +331,8 @@ function db_biaya_delete($id) {
     return $query;
 }
 
-function db_kendaraan_delete($id) {
-    $sql = "DELETE FROM kendaraan WHERE id='$id'";
+function db_kendaraan_delete($id_kendaraan) {
+    $sql = "DELETE FROM kendaraan WHERE id_kendaraan='$id_kendaraan'";
     $query = mysql_query($sql);
 
     return $query;

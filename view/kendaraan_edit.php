@@ -24,46 +24,48 @@
                                 <b>EDIT DATA</b>
                             </div>
                             <div class="panel-body collapse in" id="create">
-                                <form action="./kendaraan_edit.php?id=<?php echo $site_id;?>" method="POST" id="formKendaraan">
+                                <form action="./kendaraan_edit.php?id_kendaraan=<?php echo $site_id;?>" method="POST" id="formKendaraan">
                                     <table class="table table-bordered table-responsive table-hover small">
                                         <tr>
                                             <td>
-                                                <input id="cnik" type="text" name="nik" placeholder="Masukan NIK" class="form-control disabled" maxlength="18" value="<?php echo $data['nik']; ?>" readonly/>
+                                                <input id="cid" type="text" name="id_kendaraan" placeholder="Masukan ID Kendaraan" class="form-control" value="<?= $data['id_kendaraan'] ?>" maxlength="50"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="cnama" type="text" name="nama" placeholder="Masukan Nama Kendaraan" class="form-control" value="<?php echo $data['nama']; ?>" maxlength="50"/>
+                                                <input id="cnama" type="text" name="nama_kendaraan" placeholder="Masukan Nama Kendaraan" class="form-control" maxlength="50" value="<?= $data['nama_kendaraan'] ?>"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="cnopol" type="text" name="nopol" placeholder="Masukan No. Polisi Kendaraan" class="form-control" value="<?php echo $data['nopol']; ?>" maxlength="10"/>
+                                                <input id="cnopol" type="text" name="no_pol" placeholder="No. Polisi" class="form-control" maxlength="50" value="<?= $data['no_pol'] ?>"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="canggaran" type="text" name="anggaran" placeholder="Masukan Jumlah Anggaran (RP) Per Tahun" class="form-control" value="<?php echo $data['anggaran']; ?>" maxlength="11" required/>
+                                                <input id="cmesin" type="text" name="no_mesin" placeholder="No. Mesin" class="form-control" value="<?= $data['no_mesin'] ?>"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="cpemegang_nama" type="text" autocomplete="off" name="pemegang_nama" placeholder="Masukan Nama Atau NIP Pemegang" class="form-control" onkeyup="autoNama()" value="<?php
-                                                    if ($data['pemegang_id'] != NULL){
-                                                        $pemegang = db_kendaraan_get_nama_pemegang($data['pemegang_id']);
-                                                        echo $pemegang['nama'].' ('.$pemegang['nip'].')';
-                                                    }
-                                                ?>" maxlength="100"/>
-                                                <ul id="pemegang_nama_list" class="list-group"></ul>
-                                                <input type="hidden" id="cpemegang_id" name="pemegang_id" value="<?php echo $data['pemegang_id']; ?>"/>
+                                                <input id="crangka" type="text" name="no_rangka" placeholder="No. Rangka" class="form-control" maxlength="50" value="<?= $data['no_rangka'] ?>"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cmerk" type="text" name="merk" placeholder="Masukan Merk" class="form-control" maxlength="50" value="<?= $data['merk'] ?>"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cwarna" type="text" name="warna" placeholder="Masukan Warna" class="form-control" maxlength="50" value="<?= $data['warna'] ?>"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="active">
                                                 <div class="btn-group-sm">
-                                                    <button class="btn btn-success" type="submit" name="update"><i class="glyphicon glyphicon-pencil space-5"></i><b>UPDATE</b></button>
-                                                    </form>
-                                                    <a href="./kendaraan.php" class="btn btn-danger"><i class="glyphicon glyphicon-arrow-left space-5"></i><b>BATALKAN</b></a>
+                                                    <button class="btn btn-success" type="submit" name="update"><i class="glyphicon glyphicon-pencil space-5"></i><b>Update</b></button>
+                                                    <button class="btn btn-danger"><i class="glyphicon glyphicon-circle-arrow-right space-5"></i><b>RESET</b></button>
                                                 </div>
                                             </td>
                                         </tr>
