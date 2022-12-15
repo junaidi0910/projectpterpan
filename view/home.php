@@ -27,51 +27,101 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <button class="btn btn-default btn-sm space-5" data-toggle="collapse" data-target="#create" id="btn-create"><i class="glyphicon glyphicon-minus" id="lbl-create"></i></button>
+                                <b>TAMBAH DATA KELOLA DATA PENGAJUAN</b>
+                            </div>
+                            <div class="panel-body collapse in" id="create">
+                                <form action="./pemegang.php" method="POST" id="formPemegang">
+                                    <table class="table table-bordered table-responsive table-hover small">
+                                        <tr>
+                                            <td>
+                                                <input id="cusername" type="text" name="username" placeholder="Masukan ID Admin" class="form-control" maxlength="18"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cnama" type="text" name="nama" placeholder="Masukan ID Kendaraan" class="form-control" maxlength="50"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cnama" type="text" name="nama" placeholder="Tanggal Pinjam" class="form-control" maxlength="50"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="ctelepon" type="tel" name="telepon" placeholder="Masukan No. Telepon" class="form-control" maxlength="12" required/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cdivisi" type="text" name="divisi" placeholder="Masukan Divisi" class="form-control" maxlength="12" required/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="cpassword" type="password" name="password" placeholder="Masukan Password" class="form-control" maxlength="12" required/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="active">
+                                                <div class="btn-group-sm">
+                                                    <button class="btn btn-success" type="submit" name="create"><i class="glyphicon glyphicon-pencil space-5"></i><b>TAMBAH</b></button>
+                                                    <button class="btn btn-danger"><i class="glyphicon glyphicon-circle-arrow-right space-5"></i><b>RESET</b></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                                <?php echo $site_error; ?>
+                            </div>
+                        </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-5">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                            <input type="text" id="cnip_nama" name="nip_nama" onkeyup="autoNama()" class="form-control" placeholder="Masukan nip atau nama..." value=""/>
-                                        </div>
-                                        <br/>
-                                        <input type="hidden" id="cpemegang_id" name="pemegang_id" value=""/>
-                                        <ul id="pemegang_nama_list" class="list-group small"></ul>
-                                    </div>
-                                    <div class="col-lg-4" id="cbulan-head">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><small class="bold">BULAN</small></span>
-                                            <select id="cbulan" name="bulan" onchange="ajaxTableBiaya()" class="form-control">
-                                                <option value="1">Januari</option>
-                                                <option value="2">Februari</option>
-                                                <option value="3">Maret</option>
-                                                <option value="4">April</option>
-                                                <option value="5">Mei</option>
-                                                <option value="6">Juni</option>
-                                                <option value="7">Juli</option>
-                                                <option value="8">Agustus</option>
-                                                <option value="9">September</option>
-                                                <option value="10">Oktober</option>
-                                                <option value="11">November</option>
-                                                <option value="12">Desember</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3" id="ctahun-head">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><small class="bold">TAHUN</small></span>
-                                            <select id="ctahun" name="tahun" onchange="ajaxTableBiaya()" class="form-control">
-                                                <?php
-                                                for ($i = 2010; $i < 2020; $i++) {
-                                                    echo '<option value="' . $i . '">' . $i . '</option>';
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <b>LIST DATA KARYAWAN</b>
+                            </div>
+                            <div class="panel-body small" style="font-size: 80%;">
+                                <br/>
+                                <table id="tbl-data" class="table table-responsive table-bordered table-hover">
+                                    <thead>
+                                        <tr class="active">
+                                            <th>#</th>
+                                            <th>Username</th>
+                                            <th>Nama</th>
+                                            <th>Telepon</th>
+                                            <th>Divisi</th>
+                                            <th>Alamat</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $no = 0;
+                                        while ($data = mysql_fetch_array($data_pemegang)) {
+                                            ++$no;
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $no; ?></td>
+                                                <td><?php echo $data['username']; ?></td>
+                                                <td><?php echo $data['nama']; ?></td>
+                                                <td><?php echo $data['telepon']; ?></td>
+                                                <td><?php echo $data['divisi']; ?></td>
+                                                <td><?php echo $data['alamat']; ?></td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <a href="pemegang_edit.php?username=<?php echo $data['username']; ?>" class="btn btn-primary btn-xs" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                                                        <a href="pemegang_delete.php?username=<?php echo $data['username']; ?>" class="btn btn-danger btn-xs" title="Hapus" onclick="return confirm('Hapus data ?')"><i class="glyphicon glyphicon-trash"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+
+                                </table>
                             </div>
                         </div>
 
