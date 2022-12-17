@@ -11,7 +11,7 @@
                 <td>
                     <br/>
                     <div class="col-lg-3 col-md-3">
-                        <?php include '/view/sidebar.php'; ?>
+                        <?php include './view/sidebar.php'; ?>
                     </div>
                     <div class="col-lg-9 col-md-9">
                         <ol class="breadcrumb small bold">

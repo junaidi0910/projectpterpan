@@ -38,32 +38,47 @@
                                     <table class="table table-bordered table-responsive table-hover small">
                                         <tr>
                                             <td>
-                                                <input id="cusername" type="text" name="username" placeholder="Masukan ID Admin" class="form-control" maxlength="18"/>
+                                                <input id="id_admin" type="text" name="id_admin" placeholder="Masukan ID Admin" class="form-control" maxlength="18"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="cnama" type="text" name="nama" placeholder="Masukan ID Kendaraan" class="form-control" maxlength="50"/>
+                                                <input id="id_kendaraan" type="text" name="id_kendaraan" placeholder="Masukan ID Kendaraan" class="form-control" maxlength="50"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="cnama" type="text" name="nama" placeholder="Tanggal Pinjam" class="form-control" maxlength="50"/>
+                                                <input id="tgl_pinjam" type="date" name="tgl_pinjam" placeholder="Tanggal Pinjam" class="form-control" maxlength="50"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="ctelepon" type="tel" name="telepon" placeholder="Masukan No. Telepon" class="form-control" maxlength="12" required/>
+                                                <input id="tgl_kembali" type="date" name="tgl_kembali" placeholder="Tanggal Kembali" class="form-control" maxlength="50"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="cdivisi" type="text" name="divisi" placeholder="Masukan Divisi" class="form-control" maxlength="12" required/>
+                                                <input id="jam_awal" type="time" name="jam_awal" placeholder="Jam Awal" class="form-control" maxlength="12" required/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input id="cpassword" type="password" name="password" placeholder="Masukan Password" class="form-control" maxlength="12" required/>
+                                                <input id="jam_akhir" type="time" name="jam_akhir" placeholder="Jam Akhir" class="form-control" maxlength="12" required/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="id_kota_tujuan" type="text" name="id_kota_tujuan" placeholder="Masukan ID Kota Tujuan" class="form-control" maxlength="50"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="odometer_awal" type="text" name="odometer_awal" placeholder="Masukan Odometer Awal" class="form-control" maxlength="50"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="odometer_akhir" type="text" name="odometer_akhir" placeholder="Masukan Odometer Akhir" class="form-control" maxlength="50"/>
                                             </td>
                                         </tr>
                                         <tr>

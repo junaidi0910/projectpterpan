@@ -82,6 +82,13 @@ function db_drivers_get_all() {
     return $query;
 }
 
+function db_home_get_all() {
+    $sql = "SELECT * FROM transaksi";
+    $query = mysql_query($sql);
+
+    return $query;
+}
+
 function db_pemegang_check_nip($data) {
     $sql = "SELECT * FROM admin WHERE username = '$data'";
     $query = mysql_query($sql) or die('Database error : ' . mysql_error());
@@ -99,6 +106,13 @@ function db_pemegang_insert_new($username, $nama, $password, $telepon, $alamat, 
 
 function db_drivers_insert_new($username, $nama, $password, $telepon, $alamat) {
     $sql = "INSERT INTO admin(username, password, nama, telepon, role, alamat) VALUES ('$username','$password','$nama','$telepon', 'driver', '$alamat')";
+    $query = mysql_query($sql);
+
+    return $query;
+}
+
+function db_home_insert_new($no_transaksi, $id_admin, $id_kendaraan, $tgl_pinjam, $tgl_kembali, $jam_awal, $jam_akhir, $id_kota_tujuan, $odometer_awal, $odometer_akhir) {
+    $sql = "INSERT INTO transaksi(no_transaksi, id_admin, id_kendaraan, tgl_pinjam, tgl_kembali, jam_awal, jam_akhir, id_kota_tujuan, odometer_awal, odometer_akhir) VALUES ('$no_transaksi', '$id_admin', '$id_kendaraan', '$tgl_pinjam', '$tgl_kembali', '$jam_awal', '$jam_akhir', '$id_kota_tujuan', '$odometer_awal', '$odometer_akhir')";
     $query = mysql_query($sql);
 
     return $query;

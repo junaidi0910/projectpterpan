@@ -24,7 +24,8 @@ if ($ses_login === TRUE) {
         if ($db_insert === TRUE) {
             $site_error = '<div class="alert alert-success">Data berhasil ditambahkan !</div>';            
             // refresh query
-            $data_pemegang = db_drivers_get_all();
+            $data_drivers = db_drivers_get_all();
+            header('location:drivers.php');
         } else {
             $site_error = '<div class="alert alert-danger">NIP sudah di gunakan !</div>';
         }
